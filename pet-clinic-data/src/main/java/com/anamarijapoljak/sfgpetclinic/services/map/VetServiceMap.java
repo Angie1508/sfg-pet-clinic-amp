@@ -1,12 +1,13 @@
 package com.anamarijapoljak.sfgpetclinic.services.map;
 
 import com.anamarijapoljak.sfgpetclinic.model.Vet;
-import com.anamarijapoljak.sfgpetclinic.services.CrudService;
+import com.anamarijapoljak.sfgpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudService<Vet, Long>
-{
+@Service
+public class VetServiceMap extends AbstractMapService<Vet,Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -19,7 +20,7 @@ public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudS
 
     @Override
     public Vet save(Vet object) {
-        return super.save(object.getId(),object);
+        return super.save(object.getId(), object);
     }
 
     @Override
@@ -31,4 +32,6 @@ public class VetServiceMap extends AbstractMapService<Vet,Long> implements CrudS
     public void delete(Vet object) {
         super.delete(object);
     }
+
+
 }
