@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataLoader implements CommandLineRunner  {
+public class DataLoader implements CommandLineRunner {
 
     public final OwnerService ownerService;
     public final VetService vetService;
@@ -25,23 +25,20 @@ public class DataLoader implements CommandLineRunner  {
     public void run(String... args) throws Exception {
 
         Owner owner = new Owner();
-        owner.setId(1L);
         owner.setFirstName("Marko");
         owner.setLastName("Markić");
 
         ownerService.save(owner);
 
         Owner owner2 = new Owner();
-        owner.setId(2L);
-        owner.setFirstName("Pero");
-        owner.setLastName("Perić");
+        owner2.setFirstName("Pero");
+        owner2.setLastName("Perić");
 
         ownerService.save(owner2);
 
         Owner owner3 = new Owner();
-        owner.setId(3L);
-        owner.setFirstName("Matilda");
-        owner.setLastName("Kerić");
+        owner3.setFirstName("Matilda");
+        owner3.setLastName("Kerić");
 
         ownerService.save(owner3);
 
@@ -49,23 +46,20 @@ public class DataLoader implements CommandLineRunner  {
         System.out.println("Loaded Owners");
 
 
-        Vet vet= new Vet();
-        vet.setId(1L);
+        Vet vet = new Vet();
         vet.setFirstName("Vetko");
         vet.setLastName("Vetkić");
         vetService.save(vet);
 
-        Vet vet2= new Vet();
-        vet.setId(2L);
-        vet.setFirstName("Marina");
-        vet.setLastName("Marić");
+        Vet vet2 = new Vet();
+        vet2.setFirstName("Marina");
+        vet2.setLastName("Marić");
         vetService.save(vet2);
 
 
-        Vet vet3= new Vet();
-        vet.setId(1L);
-        vet.setFirstName("Josip");
-        vet.setLastName("Škarić");
+        Vet vet3 = new Vet();
+        vet3.setFirstName("Josip");
+        vet3.setLastName("Škarić");
         vetService.save(vet3);
 
         System.out.println("Loaded Vets");
