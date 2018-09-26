@@ -1,44 +1,41 @@
 package com.anamarijapoljak.sfgpetclinic.model;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
+
+@Setter
+@Getter
+@NoArgsConstructor
+
+@Table(name = "Owners")
+@Entity
 public class Owner extends Person {
 
-    private String address;
-    private String city;
-    private String telephone;
-    private Set<Pet> pets;
-
-    public String getAdress() {
-        return address;
-    }
-
-    public void setAdress(String adress) {
-        this.address = adress;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
+    @Builder
+    public Owner(Long id, String firstName, String lastName, String address, String city, String telephone, Set<Pet> pets) {
+        super(id, firstName, lastName);
+        this.address = address;
         this.city = city;
-    }
-
-    public String getTelephone() {
-        return telephone;
-    }
-
-    public void setTelephone(String telephone) {
         this.telephone = telephone;
-    }
-
-    public Set<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(Set<Pet> pets) {
         this.pets = pets;
     }
-}
+
+    @Column(name = "Adresss")
+    private String address;
+    @Column(name = "City")
+    private String city;
+    @Column(name = "Telephone")
+    private String telephone;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private Set<Pet> pets = new HashSet<>();
+
+    }
 

@@ -11,4 +11,9 @@ public class IndexController {
     {
         return "Index";
     }
+    @RequestMapping({"/find", "/oups"})
+    public String oupsHandler(){
+        return "notimplemented";
+    }
+
 }
